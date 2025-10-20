@@ -26,7 +26,7 @@
 ### 1.4 练习2：Best-Fit连续内存分配算法
 - **算法原理**：遍历所有空闲块，选择最小且满足需求的块分配，减少大块拆分，降低碎片但分配速度较慢。
 - **核心差异**：仅`best_fit_alloc_pages(n)`与First-Fit不同，初始化`min_size=nr_free+1`，遍历所有块找“最小满足需求”的块，后续拆分、链表更新逻辑与First-Fit一致。
-- **实验验证**：执行`make qemu`，输出“`memory management: best_fit_pmm_manager`”“`check_alloc_page() succeeded!`”等信息，表明算法生效。
+- **实验验证**：执行`make grade`，根据输出的分数判断是否成功
 - **改进空间**：
   - 优化查找：维护按大小升序的链表，或按块大小分组建哈希表。
   - 碎片管理：引入碎片压缩（合并分散小块）或预留应急大空闲块。
